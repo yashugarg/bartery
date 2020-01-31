@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:animation_exp/ChatBox/chat_box.dart';
 import 'package:animation_exp/SwipeAnimation/data.dart';
 import 'package:animation_exp/SwipeAnimation/dummyCard.dart';
 import 'package:animation_exp/SwipeAnimation/activeCard.dart';
@@ -133,13 +134,47 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
     var dataLength = data.length;
     double backCardPosition = initialBottom + (dataLength - 1) * 10 + 10;
     double backCardWidth = -7.0 * (data.length);
+
+    var pages = [
+      new Container(
+        color: new Color.fromRGBO(50, 50, 50, 1.0),
+        alignment: Alignment.center,
+        child: dataLength > 0
+            ? new Stack(
+                alignment: AlignmentDirectional.center,
+                children: data.map((item) {
+                  if (data.indexOf(item) == dataLength - 1) {
+                    return cardDemo(
+                        item,
+                        bottom.value,
+                        right.value,
+                        0.0,
+                        backCardWidth + 10,
+                        rotate.value,
+                        rotate.value < -10 ? 0.1 : 0.0,
+                        context,
+                        dismissImg,
+                        flag,
+                        addImg,
+                        swipeRight,
+                        swipeLeft);
+                  } else {
+                    backCardPosition = backCardPosition - 10;
+                    backCardWidth = backCardWidth + 10;
+
+                    return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
+                        backCardWidth, 0.0, 0.0, context);
+                  }
+                }).toList())
+            : new Text("No Products Left",
+                style: new TextStyle(color: Colors.white, fontSize: 35.0)),
+      ),
+      new ChatPage(),
+    ];
+
     return (new Scaffold(
       drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
@@ -250,39 +285,40 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           ],
         ),
       ),
-      body: new Container(
-        color: new Color.fromRGBO(50, 50, 50, 1.0),
-        alignment: Alignment.center,
-        child: dataLength > 0
-            ? new Stack(
-                alignment: AlignmentDirectional.center,
-                children: data.map((item) {
-                  if (data.indexOf(item) == dataLength - 1) {
-                    return cardDemo(
-                        item,
-                        bottom.value,
-                        right.value,
-                        0.0,
-                        backCardWidth + 10,
-                        rotate.value,
-                        rotate.value < -10 ? 0.1 : 0.0,
-                        context,
-                        dismissImg,
-                        flag,
-                        addImg,
-                        swipeRight,
-                        swipeLeft);
-                  } else {
-                    backCardPosition = backCardPosition - 10;
-                    backCardWidth = backCardWidth + 10;
+      body: pages[_selectedIndex],
+      // new Container(
+      //   color: new Color.fromRGBO(50, 50, 50, 1.0),
+      //   alignment: Alignment.center,
+      //   child: dataLength > 0
+      //       ? new Stack(
+      //           alignment: AlignmentDirectional.center,
+      //           children: data.map((item) {
+      //             if (data.indexOf(item) == dataLength - 1) {
+      //               return cardDemo(
+      //                   item,
+      //                   bottom.value,
+      //                   right.value,
+      //                   0.0,
+      //                   backCardWidth + 10,
+      //                   rotate.value,
+      //                   rotate.value < -10 ? 0.1 : 0.0,
+      //                   context,
+      //                   dismissImg,
+      //                   flag,
+      //                   addImg,
+      //                   swipeRight,
+      //                   swipeLeft);
+      //             } else {
+      //               backCardPosition = backCardPosition - 10;
+      //               backCardWidth = backCardWidth + 10;
 
-                    return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
-                        backCardWidth, 0.0, 0.0, context);
-                  }
-                }).toList())
-            : new Text("No Products Left",
-                style: new TextStyle(color: Colors.white, fontSize: 35.0)),
-      ),
+      //               return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
+      //                   backCardWidth, 0.0, 0.0, context);
+      //             }
+      //           }).toList())
+      //       : new Text("No Products Left",
+      //           style: new TextStyle(color: Colors.white, fontSize: 35.0)),
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         items: const <BottomNavigationBarItem>[

@@ -1,6 +1,5 @@
 import 'package:animation_exp/SwipeAnimation/data.dart';
 import 'package:flutter/material.dart';
-import 'package:animation_exp/SwipeAnimation/styles.dart';
 import 'package:flutter/scheduler.dart';
 
 class DetailPage extends StatefulWidget {
@@ -66,13 +65,13 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
     return new Theme(
       data: new ThemeData(
         brightness: Brightness.light,
-        primaryColor: const Color.fromRGBO(106, 94, 175, 1.0),
+        primaryColor: const Color.fromRGBO(50, 50, 50, 1.0),
         platform: Theme.of(context).platform,
       ),
       child: new Container(
         width: width.value,
         height: heigth.value,
-        color: const Color.fromRGBO(106, 94, 175, 1.0),
+        color: const Color.fromRGBO(50, 50, 50, 1.0),
         child: new Hero(
           tag: "img",
           child: new Card(
@@ -110,7 +109,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                             _appBarBehavior == AppBarBehavior.snapping,
                         snap: _appBarBehavior == AppBarBehavior.snapping,
                         flexibleSpace: new FlexibleSpaceBar(
-                          title: new Text("Party"),
+                          title: new Text("Lorem Ipsum"),
                           background: new Stack(
                             fit: StackFit.expand,
                             children: <Widget>[
@@ -149,19 +148,6 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                         new Row(
                                           children: <Widget>[
                                             new Icon(
-                                              Icons.access_time,
-                                              color: Colors.cyan,
-                                            ),
-                                            new Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: new Text("10:00  AM"),
-                                            )
-                                          ],
-                                        ),
-                                        new Row(
-                                          children: <Widget>[
-                                            new Icon(
                                               Icons.map,
                                               color: Colors.cyan,
                                             ),
@@ -185,7 +171,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                     ),
                                   ),
                                   new Text(
-                                      "It's party, party, party like a nigga just got out of jail Flyin' in my 'Rari like a bat that just flew outta hell I'm from the east of ATL, but ballin' in the Cali hills Lil mama booty boomin', that bitch movin' and she standin' still I know these bitches choosin' me, but I got 80 on me still. host for the purposes of socializing, conversation, recreation, or as part of a festival or other commemoration of a special occasion. A party will typically feature food and beverages, and often music and dancing or other forms of entertainment.  "),
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat semper viverra nam libero justo laoreet sit. Velit scelerisque in dictum non. Egestas dui id ornare arcu odio ut sem nulla pharetra. Nunc mi ipsum faucibus vitae. Tortor id aliquet lectus proin nibh nisl. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Sed viverra tellus in hac habitasse. Amet cursus sit amet dictum sit amet justo. Ut aliquam purus sit amet luctus venenatis lectus."),
                                   new Container(
                                     margin: new EdgeInsets.only(top: 25.0),
                                     padding: new EdgeInsets.only(
@@ -201,38 +187,6 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                           MainAxisAlignment.spaceEvenly,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        new Text(
-                                          "ATTENDEES",
-                                          style: new TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        new Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            new CircleAvatar(
-                                                backgroundImage: avatar1),
-                                            new CircleAvatar(
-                                              backgroundImage: avatar2,
-                                            ),
-                                            new CircleAvatar(
-                                              backgroundImage: avatar3,
-                                            ),
-                                            new CircleAvatar(
-                                              backgroundImage: avatar4,
-                                            ),
-                                            new CircleAvatar(
-                                              backgroundImage: avatar5,
-                                            ),
-                                            new CircleAvatar(
-                                              backgroundImage: avatar6,
-                                            )
-                                          ],
-                                        )
-                                      ],
                                     ),
                                   ),
                                   new Container(
@@ -250,7 +204,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                       width: 600.0,
                       height: 80.0,
                       decoration: new BoxDecoration(
-                        color: new Color.fromRGBO(121, 114, 173, 1.0),
+                        color: new Color.fromRGBO(75, 75, 75, 1.0),
                       ),
                       alignment: Alignment.center,
                       child: new Row(
@@ -258,7 +212,12 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                         children: <Widget>[
                           new FlatButton(
                               padding: new EdgeInsets.all(0.0),
-                              onPressed: () {},
+                              onPressed: () {
+                              
+
+
+
+                              },
                               child: new Container(
                                 height: 60.0,
                                 width: 130.0,
@@ -268,7 +227,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                   borderRadius: new BorderRadius.circular(60.0),
                                 ),
                                 child: new Text(
-                                  "DON'T",
+                                  "Not Interested",
                                   style: new TextStyle(color: Colors.white),
                                 ),
                               )),
@@ -280,11 +239,11 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                 width: 130.0,
                                 alignment: Alignment.center,
                                 decoration: new BoxDecoration(
-                                  color: Colors.cyan,
+                                  color: Colors.lightGreen,
                                   borderRadius: new BorderRadius.circular(60.0),
                                 ),
                                 child: new Text(
-                                  "I'M IN",
+                                  "Interested",
                                   style: new TextStyle(color: Colors.white),
                                 ),
                               ))

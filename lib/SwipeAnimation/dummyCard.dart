@@ -58,7 +58,7 @@ Positioned cardDemoDummy(
                             borderRadius: new BorderRadius.circular(60.0),
                           ),
                           child: new Text(
-                            "NOT INTRESTED",
+                            "NOT INTERESTED",
                             style: new TextStyle(color: Colors.white),
                           ),
                         )),
@@ -74,7 +74,7 @@ Positioned cardDemoDummy(
                             borderRadius: new BorderRadius.circular(60.0),
                           ),
                           child: new Text(
-                            "INTRESTED",
+                            "INTERESTED",
                             style: new TextStyle(color: Colors.white),
                           ),
                         ))

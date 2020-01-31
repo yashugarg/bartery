@@ -107,7 +107,7 @@ Positioned cardDemo(
                                           new BorderRadius.circular(60.0),
                                     ),
                                     child: new Text(
-                                      "NOT INTRESTED",
+                                      "NOT INTERESTED",
                                       style: new TextStyle(color: Colors.white),
                                     ),
                                   )),
@@ -126,7 +126,7 @@ Positioned cardDemo(
                                           new BorderRadius.circular(60.0),
                                     ),
                                     child: new Text(
-                                      "INTRESTED",
+                                      "INTERESTED",
                                       style: new TextStyle(color: Colors.white),
                                     ),
                                   ))
