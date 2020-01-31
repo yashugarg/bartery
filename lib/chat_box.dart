@@ -7,7 +7,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Bartery Chat',
       theme: ThemeData.dark(),
       initialRoute: ChatPageState.id,
       routes: {
@@ -37,11 +37,11 @@ class ChatPageState extends StatelessWidget {
                 tag: 'logo',
                 child: Container(
                   width: 100.0,
-                  child: Image.asset("assets/images/logo.png"),
+                  child: Image.asset("assets/Icon.png"),
                 ),
               ),
               Text(
-                "Tensor Chat",
+                "Bartery",
                 style: TextStyle(
                   fontSize: 40.0,
                 ),
@@ -125,7 +125,7 @@ class _RegistrationState extends State<Registration> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tensor Chat"),
+        title: Text("Bartery"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -208,7 +208,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tensor Chat"),
+        title: Text("Bartery"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -299,10 +299,10 @@ class _ChatState extends State<Chat> {
           tag: 'logo',
           child: Container(
             height: 40.0,
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("assets/Icon.png"),
           ),
         ),
-        title: Text("Tensor Chat"),
+        title: Text("Bartery Chat"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.close),

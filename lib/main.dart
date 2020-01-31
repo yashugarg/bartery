@@ -9,9 +9,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Bartery',
       // showPerformanceOverlay: true,
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark(),
       home: new CardDemo(),
     );
   }
