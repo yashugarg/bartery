@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "363601963533",
+    "firebase_url": "https://bartary-e726f.firebaseio.com",
+    "project_id": "bartary-e726f",
+    "storage_bucket": "bartary-e726f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363601963533:android:2baa4b9dcf25e3841ec344",
+        "android_client_info": {
+          "package_name": "com.bartery.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363601963533-ekagnc12h1gv5tqvin3ik1uniand9mp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgeapDc5ly2_2G6aCLj0dG2_kEEcT1dC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363601963533-ekagnc12h1gv5tqvin3ik1uniand9mp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
