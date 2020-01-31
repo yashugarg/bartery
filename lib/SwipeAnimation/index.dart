@@ -119,21 +119,6 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Discover',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Chat',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Reconsider',
-      style: optionStyle,
-    ),
-  ];
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -158,9 +143,9 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('Drawer Header'),
+              child: Text('Header'),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.black,
               ),
             ),
             ListTile(
@@ -211,7 +196,6 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
           ],
         ),
       ),
-
       appBar: new AppBar(
         elevation: 0.0,
         backgroundColor: Colors.black,
@@ -299,12 +283,6 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
             : new Text("No Products Left",
                 style: new TextStyle(color: Colors.white, fontSize: 35.0)),
       ),
-      //   appBar: AppBar(
-      //   title: const Text('BottomNavigationBar Sample'),
-      // ),
-      //   body: Center(
-      //   child: _widgetOptions.elementAt(_selectedIndex),
-      // ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         items: const <BottomNavigationBarItem>[
