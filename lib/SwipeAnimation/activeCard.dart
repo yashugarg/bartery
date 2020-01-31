@@ -58,8 +58,8 @@ Positioned cardDemo(
                 //     new MaterialPageRoute(
                 //         builder: (context) => new DetailPage(type: img)));
                 Navigator.of(context).push(new PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => new DetailPage(type: img),
-                    ));
+                  pageBuilder: (_, __, ___) => new DetailPage(type: img),
+                ));
               },
               child: new Card(
                 color: Colors.transparent,
@@ -69,7 +69,7 @@ Positioned cardDemo(
                   width: screenSize.width / 1.2 + cardWidth,
                   height: screenSize.height / 1.7,
                   decoration: new BoxDecoration(
-                    color: new Color.fromRGBO(121, 114, 173, 1.0),
+                    color: new Color.fromRGBO(75, 75, 75, 1.0),
                     borderRadius: new BorderRadius.circular(8.0),
                   ),
                   child: new Column(
@@ -121,7 +121,7 @@ Positioned cardDemo(
                                     width: 150.0,
                                     alignment: Alignment.center,
                                     decoration: new BoxDecoration(
-                                      color: Colors.cyan,
+                                      color: Colors.lightGreen,
                                       borderRadius:
                                           new BorderRadius.circular(60.0),
                                     ),
