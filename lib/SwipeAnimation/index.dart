@@ -2,8 +2,6 @@ import 'dart:async';
 import 'package:animation_exp/SwipeAnimation/data.dart';
 import 'package:animation_exp/SwipeAnimation/dummyCard.dart';
 import 'package:animation_exp/SwipeAnimation/activeCard.dart';
-
-//import 'package:animation_exp/PageReveal/page_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
@@ -118,6 +116,30 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
     _swipeAnimation();
   }
 
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Discover',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Chat',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Reconsider',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     timeDilation = 0.4;
@@ -127,92 +149,182 @@ class CardDemoState extends State<CardDemo> with TickerProviderStateMixin {
     double backCardPosition = initialBottom + (dataLength - 1) * 10 + 10;
     double backCardWidth = -7.0 * (data.length);
     return (new Scaffold(
-        appBar: new AppBar(
-          elevation: 0.0,
-          backgroundColor: new Color.fromRGBO(50, 50, 50, 1.0),
-          centerTitle: true,
-          leading: new Container(
-            margin: const EdgeInsets.all(15.0),
-            child: new Icon(
-              Icons.equalizer,
-              color: Colors.cyan,
-              size: 30.0,
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Drawer Header'),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
             ),
-          ),
-          actions: <Widget>[
-            new GestureDetector(
+            ListTile(
+              title: Text('Profile'),
               onTap: () {
-                // Navigator.push(
-                //     context,
-                //     new MaterialPageRoute(
-                //         builder: (context) => new PageMain()));
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
               },
-              child: new Container(
-                  margin: const EdgeInsets.all(15.0),
-                  child: new Icon(
-                    Icons.search,
-                    color: Colors.cyan,
-                    size: 30.0,
-                  )),
+            ),
+            ListTile(
+              title: Text('Discover'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Reconsider'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Chat'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Rate Us'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
             ),
           ],
-          title: new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Text(
-                "PRODUCTS",
-                style: new TextStyle(
-                    fontSize: 12.0,
-                    letterSpacing: 3.5,
-                    fontWeight: FontWeight.bold),
-              ),
-              new Container(
-                width: 15.0,
-                height: 15.0,
-                margin: new EdgeInsets.only(bottom: 20.0),
-                alignment: Alignment.center,
-                child: new Text(
-                  dataLength.toString(),
-                  style: new TextStyle(fontSize: 10.0),
-                ),
-                decoration: new BoxDecoration(
-                    color: Colors.red, shape: BoxShape.circle),
-              )
-            ],
-          ),
         ),
-        body: new Container(
-          color: new Color.fromRGBO(50, 50, 50, 1.0),
-          alignment: Alignment.center,
-          child: dataLength > 0
-              ? new Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: data.map((item) {
-                    if (data.indexOf(item) == dataLength - 1) {
-                      return cardDemo(
-                          item,
-                          bottom.value,
-                          right.value,
-                          0.0,
-                          backCardWidth + 10,
-                          rotate.value,
-                          rotate.value < -10 ? 0.1 : 0.0,
-                          context,
-                          dismissImg,
-                          flag,
-                          addImg,
-                          swipeRight,
-                          swipeLeft);
-                    } else {
-                      backCardPosition = backCardPosition - 10;
-                      backCardWidth = backCardWidth + 10;
+      ),
 
-                      return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
-                          backCardWidth, 0.0, 0.0, context);
-                    }
-                  }).toList())
-              : new Text("No Products Left",
-                  style: new TextStyle(color: Colors.white, fontSize: 35.0)),
-        )));
+      appBar: new AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        // leading: new Container(
+        // margin: const EdgeInsets.all(15.0),
+        // child: new Icon(
+        //   Icons.equalizer,
+        //   color: Colors.cyan,
+        //   size: 30.0,
+        // ),
+        // ),
+        actions: <Widget>[
+          new GestureDetector(
+            onTap: () {
+              // Navigator.push(
+              //     context,
+              //     new MaterialPageRoute(
+              //         builder: (context) => new PageMain()));
+            },
+            child: new Container(
+                margin: const EdgeInsets.all(15.0),
+                child: new Icon(
+                  Icons.portrait,
+                  color: Colors.white,
+                  size: 30.0,
+                )),
+          ),
+        ],
+        title: new Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Text(
+              "PRODUCTS",
+              style: new TextStyle(
+                  fontSize: 15.0,
+                  // letterSpacing: 3.5,
+                  fontWeight: FontWeight.bold),
+            ),
+            // new Container(
+            //   width: 15.0,
+            //   height: 15.0,
+            //   margin: new EdgeInsets.only(bottom: 20.0),
+            //   alignment: Alignment.center,
+            //   child: new Text(
+            //     dataLength.toString(),
+            //     style: new TextStyle(fontSize: 10.0),
+            //   ),
+            //   decoration: new BoxDecoration(
+            //       color: Colors.red, shape: BoxShape.circle),
+            // )
+          ],
+        ),
+      ),
+      body: new Container(
+        color: new Color.fromRGBO(50, 50, 50, 1.0),
+        alignment: Alignment.center,
+        child: dataLength > 0
+            ? new Stack(
+                alignment: AlignmentDirectional.center,
+                children: data.map((item) {
+                  if (data.indexOf(item) == dataLength - 1) {
+                    return cardDemo(
+                        item,
+                        bottom.value,
+                        right.value,
+                        0.0,
+                        backCardWidth + 10,
+                        rotate.value,
+                        rotate.value < -10 ? 0.1 : 0.0,
+                        context,
+                        dismissImg,
+                        flag,
+                        addImg,
+                        swipeRight,
+                        swipeLeft);
+                  } else {
+                    backCardPosition = backCardPosition - 10;
+                    backCardWidth = backCardWidth + 10;
+
+                    return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
+                        backCardWidth, 0.0, 0.0, context);
+                  }
+                }).toList())
+            : new Text("No Products Left",
+                style: new TextStyle(color: Colors.white, fontSize: 35.0)),
+      ),
+      //   appBar: AppBar(
+      //   title: const Text('BottomNavigationBar Sample'),
+      // ),
+      //   body: Center(
+      //   child: _widgetOptions.elementAt(_selectedIndex),
+      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star, color: Colors.white),
+            title: Text('Discover', style: TextStyle(color: Colors.white)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat, color: Colors.white),
+            title: Text('Chat', style: TextStyle(color: Colors.white)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_basket, color: Colors.white),
+            title: Text('Reconsider', style: TextStyle(color: Colors.white)),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    ));
   }
 }

@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Barratry',
+      title: 'Bartery',
       // showPerformanceOverlay: true,
       theme: new ThemeData(
         primarySwatch: Colors.blue,
