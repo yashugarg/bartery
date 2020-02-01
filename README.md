@@ -7,3 +7,6 @@ Know more about bartery [here](https://docs.google.com/presentation/d/11qCZfAqQa
 
 To run the project follow the steps [here](https://flutter-io-deploy-one.firebaseapp.com/getting-started/#running-your-flutter-app)
 
+### OR
+
+Download and the apk in your android device [here](https://drive.google.com/file/d/1Zho-0-duO_PnWqwi8XQgFHhLyOSI_McB/view?usp=sharing)
